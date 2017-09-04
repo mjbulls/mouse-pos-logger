@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MySpecialLoggerService } from './my-special-logger.service';
+import { LogLevel } from './log-level.enum';
 
 @Component({
   selector: 'mpl-root',
@@ -7,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'mpl';
+
+  constructor(private logger: MySpecialLoggerService) {
+
+  }
+
+  printDebugLog() {
+    this.logger.debug('test dependency injection tree!');
+  }
 }
